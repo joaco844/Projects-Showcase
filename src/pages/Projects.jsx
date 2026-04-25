@@ -1,0 +1,38 @@
+import { Link } from 'react-router-dom'
+
+const projects = [
+  {
+    id: 'legaldoc',
+    name: 'LegalDoc Analyzer',
+    description: 'AI-powered legal document analysis using LLMs',
+    tags: ['Python', 'FastAPI', 'Gemini'],
+  },
+]
+
+export default function Projects() {
+  return (
+    <div>
+      <div className="projects-header">
+        <h1>Projects</h1>
+        <p>Interactive demos consuming real APIs</p>
+      </div>
+
+      <div className="projects-grid">
+        {projects.map(p => (
+          <Link key={p.id} to={`/projects/${p.id}`} className="project-card">
+            <div className="project-info">
+              <h3>{p.name}</h3>
+              <p>{p.description}</p>
+              <div className="project-tags">
+                {p.tags.map(t => (
+                  <span key={t} className="project-tag">{t}</span>
+                ))}
+              </div>
+            </div>
+            <span className="project-arrow">→</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
