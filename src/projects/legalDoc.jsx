@@ -4,10 +4,18 @@ import { legalDocConfig, API_BASE } from './legalDocConfig'
 
 const ACCEPTED = '.pdf,.txt'
 
+const MODELS = [
+  { value: 'gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
+  { value: 'gemini-2.5-pro',   label: 'Gemini 2.5 Pro'   },
+  { value: 'gemini-2.0-flash', label: 'Gemini 2.0 Flash' },
+]
+
 export default function LegalDoc() {
   const [mode, setMode] = useState('text')
   const [text, setText] = useState('')
   const [file, setFile] = useState(null)
+  const [apiKey, setApiKey] = useState('')
+  const [model, setModel] = useState('gemini-2.5-flash')
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -29,11 +37,13 @@ export default function LegalDoc() {
         res = await fetch(`${API_BASE}/legaldoc/analyze`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text }),
+          body: JSON.stringify({ text, api_key: apiKey, model }),
         })
       } else {
         const form = new FormData()
         form.append('file', file)
+        form.append('api_key', apiKey)
+        form.append('model', model)
         res = await fetch(`${API_BASE}/legaldoc/analyze/file`, {
           method: 'POST',
           body: form,
@@ -51,11 +61,36 @@ export default function LegalDoc() {
     }
   }
 
-  const canAnalyze = !loading && (mode === 'text' ? text.trim() : file !== null)
+  const canAnalyze = !loading && apiKey.trim() && (mode === 'text' ? text.trim() : file !== null)
 
   return (
     <ProjectPage config={legalDocConfig}>
       <div className="analyzer">
+        <div className="analyzer-config">
+          <div className="analyzer-config-field">
+            <p className="section-label">Gemini API Key</p>
+            <input
+              className="analyzer-key-input"
+              type="password"
+              placeholder="AIza..."
+              value={apiKey}
+              onChange={e => setApiKey(e.target.value)}
+            />
+          </div>
+          <div className="analyzer-config-field">
+            <p className="section-label">Model</p>
+            <select
+              className="analyzer-model-select"
+              value={model}
+              onChange={e => setModel(e.target.value)}
+            >
+              {MODELS.map(m => (
+                <option key={m.value} value={m.value}>{m.label}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div className="analyzer-toggle">
           <button
             className={`toggle-btn${mode === 'text' ? ' toggle-btn--active' : ''}`}
