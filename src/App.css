@@ -570,3 +570,82 @@ main {
   border-color: rgba(221,91,0,0.2);
   color: #92400e;
 }
+
+/* GitLab form */
+.gl-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gl-row {
+  display: flex;
+  gap: 16px;
+}
+.gl-row .gl-field { flex: 1; }
+
+.gl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gl-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.gl-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.analyzer-btn--secondary {
+  background: rgba(0,0,0,0.06);
+  color: var(--text);
+}
+.analyzer-btn--secondary:hover:not(:disabled) {
+  background: rgba(0,0,0,0.1);
+  transform: scale(1.02);
+}
+
+.gl-commit {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gl-commit-id {
+  font-family: 'Menlo', 'Monaco', monospace;
+  font-size: 11px;
+  background: var(--accent-subtle);
+  color: var(--accent-text);
+  padding: 1px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.gl-commit-title {
+  font-size: 14px;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+}
+
+.gl-commit-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.gl-issue-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  word-break: break-all;
+}
+.gl-issue-link:hover { color: var(--accent-hover); }

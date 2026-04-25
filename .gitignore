@@ -31,3 +31,6 @@ venv/
 
 # Design references
 DESIGN.md
+
+# Session context
+CONTEXT.md

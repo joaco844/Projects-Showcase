@@ -18,7 +18,7 @@ export const legalDocConfig = {
     },
     {
       method: 'POST',
-      path: '/analyze',
+      path: '/legaldoc/analyze',
       description: 'Analyzes a legal document from plain text.',
       body: '{ "text": "string" }',
       response: '{ "document_type": "string", "parties": ["..."], "key_clauses": ["..."], "risk_flags": ["..."] }',
@@ -26,7 +26,7 @@ export const legalDocConfig = {
     },
     {
       method: 'POST',
-      path: '/analyze/file',
+      path: '/legaldoc/analyze/file',
       description: 'Analyzes a legal document uploaded as a PDF or TXT file.',
       body: 'multipart/form-data — field name: file (.pdf or .txt)',
       response: '{ "document_type": "string", "parties": ["..."], "key_clauses": ["..."], "risk_flags": ["..."] }',

@@ -7,6 +7,12 @@ const projects = [
     description: 'AI-powered legal document analysis using LLMs',
     tags: ['Python', 'FastAPI', 'Gemini'],
   },
+  {
+    id: 'gitlab',
+    name: 'GitLab Release Summary',
+    description: 'Generate release summaries from commits and create GitLab issues automatically',
+    tags: ['Python', 'FastAPI', 'python-gitlab'],
+  },
 ]
 
 export default function Projects() {

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import LegalDoc from './projects/legalDoc'
+import GitLab from './projects/gitlab'
 import './App.css'
 
 function Navbar() {
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/legaldoc" element={<LegalDoc />} />
+          <Route path="/projects/gitlab" element={<GitLab />} />
         </Routes>
       </main>
     </BrowserRouter>

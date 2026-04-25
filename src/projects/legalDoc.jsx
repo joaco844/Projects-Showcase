@@ -26,7 +26,7 @@ export default function LegalDoc() {
     try {
       let res
       if (mode === 'text') {
-        res = await fetch(`${API_BASE}/analyze`, {
+        res = await fetch(`${API_BASE}/legaldoc/analyze`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text }),
@@ -34,7 +34,7 @@ export default function LegalDoc() {
       } else {
         const form = new FormData()
         form.append('file', file)
-        res = await fetch(`${API_BASE}/analyze/file`, {
+        res = await fetch(`${API_BASE}/legaldoc/analyze/file`, {
           method: 'POST',
           body: form,
         })
