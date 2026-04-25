@@ -1,4 +1,4 @@
-export const API_BASE = 'http://localhost:8000'
+export const API_BASE = 'https://portfolio-api-production-2761.up.railway.app'
 
 export const gitlabConfig = {
   title: 'GitLab Release Summary',
