@@ -13,6 +13,12 @@ const projects = [
     description: 'Generate release summaries from commits and create GitLab issues automatically',
     tags: ['Python', 'FastAPI', 'python-gitlab'],
   },
+  {
+    id: 'rag',
+    name: 'Legal RAG',
+    description: 'Upload legal documents and ask questions in natural language using RAG',
+    tags: ['Python', 'FastAPI', 'OpenAI', 'Claude', 'Qdrant'],
+  },
 ]
 
 export default function Projects() {
