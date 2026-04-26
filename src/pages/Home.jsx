@@ -3,13 +3,13 @@ export default function Home() {
     <div className="home">
       <section className="hero">
         <h1>Joaquin Diaz</h1>
-        <p className="tagline">Backend Developer · Python · Django · Building toward AI/ML</p>
+        <p className="tagline">Full-Stack Developer · Python · Django · Building toward AI/ML</p>
       </section>
 
       <section className="about">
         <p className="section-label">About</p>
         <p>
-          Backend Developer with 2+ years of experience building web applications
+          Full-Stack Developer with 2+ years of experience building web applications
           with Python and Django, specialized in Legal Tech. I focus on clean code,
           performance optimization, and reliable systems.
         </p>
@@ -35,11 +35,6 @@ export default function Home() {
             <span key={tag} className="tag learning">{tag}</span>
           ))}
         </div>
-      </section>
-
-      <section className="links">
-        <a href="https://github.com/joaco844" target="_blank" rel="noreferrer">GitHub →</a>
-        <a href="https://linkedin.com/in/joaquin-diaz-syrotink" target="_blank" rel="noreferrer">LinkedIn →</a>
       </section>
     </div>
   )
